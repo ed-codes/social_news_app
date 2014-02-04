@@ -1,0 +1,43 @@
+<h1>Listing posts</h1>
+
+<%= link_to 'New Post', new_post_path if user_signed_in? %>
+
+<div id="posts">
+
+  <% @posts.each do |post| %>
+    
+    <div class="post <%= cycle('light', 'dark') %>">
+
+      <h3><%= post.title%></h3>
+      <p><%= post.content%></p> <!-- truncate this  -->
+      <p><%= post.created_at%></p>
+      <p><%= post.votes.where(:upvote => true).count %> UpVotes</p>
+      <p><%= post.votes.where(:downvote => true).count %> DownVotes</p>
+
+
+      <%= link_to 'Show', post %>
+
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <% vote = current_user.votes.new(:post_id => post.id) %>
+        
+        <%= form_for([post, vote]) do |f| %>
+          <%= f.hidden_field :upvote, :value => true %>
+          <%= f.submit 'Vote Up' %>
+        <% end %>
+
+        <%= form_for([post, vote]) do |f| %>
+          <%= f.hidden_field :downvote, :value => true %>
+          <%= f.submit 'Vote Down' %>
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div> <!-- end post div -->
+

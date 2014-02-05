@@ -4,11 +4,14 @@
 
 
 #posts {
-  border: 1px solid grey;
   margin: 10px;
-  padding: 10px;
 }
 
-.post dark {
-background-color: grey;
+.post {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.post.dark {
+
 }

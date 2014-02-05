@@ -1,9 +1,27 @@
-<p id="notice"><%= notice %></p>
+
 
 <h2><%= @post.title %></h2>
-<%= image_tag @post.image, :width => '200' %>
+<p><span class="upvotes"><%= @post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= @post.votes.where(:downvote => true).count %> DownVotes</span></p>
+<p><strong>Posted by:</strong> <%= @post.user.email %></p>
+<%= image_tag @post.image, :width => '400' %>
 <p><%= @post.content%></p>
 
+
+<% if user_signed_in? %>
+
+  <% vote = current_user.votes.new(:post_id => @post.id) %>
+
+  <%= form_for([@post, vote]) do |f| %>
+    <%= f.hidden_field :upvote, :value => true %>
+    <%= f.submit 'Vote Up' %>
+  <% end %>
+
+  <%= form_for([@post, vote]) do |f| %>
+    <%= f.hidden_field :downvote, :value => true %>
+    <%= f.submit 'Vote Down' %>
+  <% end %>
+
+<% end %>
 
 <% @comments.each do |comment| %>
   
@@ -15,10 +33,7 @@
 
   <% end %>
 
-  <br>
-  <br>
+<%= link_to 'Comment', new_post_comment_path(@post) %> 
 
-<%= link_to 'Comment', new_post_comment_path(@post) %> |
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@post) if user_signed_in? && current_user == @post.user %> 
 <%= link_to 'Back', posts_path %>

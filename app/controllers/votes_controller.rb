@@ -6,7 +6,7 @@ class VotesController < ApplicationController
     @vote.user = current_user
     @vote.save
 
-    redirect_to root_path
+    redirect_to :back
   end
 
   def destroy

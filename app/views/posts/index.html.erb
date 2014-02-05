@@ -11,15 +11,11 @@
       
       <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
 
-      <p><strong>Posted by:</strong> <%= post.user.email %></p>
+      <p><strong>Posted by:</strong> <%= post.user.email %><strong> at: </strong><%= post.created_at%></p>
+
       <p><%= image_tag post.image, :width => '150px' %></p>
       <p><%= post.content%></p> <!-- truncate this  -->
       <%= link_to 'Read More', post %>
-      
-      <p><strong>Posted at: </strong><%= post.created_at%></p>
-      
-
-
       
 
       <% if user_signed_in? %>
@@ -39,8 +35,6 @@
 
         <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && current_user == post.user %>
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? && current_user == post.user %>
-
-        
 
       <% end %>
 

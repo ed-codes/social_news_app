@@ -28,17 +28,26 @@ line-height: 21px;
 font-size: 14px;
 }
 
-h1, h2 {
+h1 {
   font-family: headings, Impact, Arial;
-  font-weight: lighter;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.1em;
 }
 
 .container {
 max-width: 960px;
 margin: 0 auto;
 }
+
+.upvotes {
+  color: green;
+}
+
+.downvotes {
+  color: red;
+}
+
+/* HEADER STYLES */
 
 header {
   margin-bottom: 50px;
@@ -52,22 +61,33 @@ header {
   overflow: auto;
 }
 
+#top-band h1 {
+  margin-left: 20px;
+  padding-top: 14px;
+}
+
+#top-band h3 {
+  font-family: headings, Impact, Arial;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: +0.05em;
+  float: right;
+  margin-right: 20px;
+  margin-top: 34px;
+}
+
+#top-band img {
+  float: left;
+  height: 50px;
+  padding: 15px 10px 16px 20px;
+  margin: 0;
+}
+
 header a {
   color: inherit;
 }
 
-.upvotes {
-  color: green;
-}
-
-.downvotes {
-  color: red;
-}
-
-/* NAV STYLES */
-
 #sticky {
-  padding: 10px 0 10px 0;
   border-top: 1px solid #cdcdcd;
   border-bottom:  1px solid #cdcdcd;
   -webkit-box-shadow: 0 0 2px 0 rgba(50,50,50,0.3);
@@ -91,7 +111,15 @@ header a {
 
 .login {
   float: right;
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+.login p {
+
+}
+
+#sticky ul {
+  padding-left: 20px;
 }
 
 #sticky ul li {
@@ -116,7 +144,8 @@ footer {
 }
 
 #copyarea {
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .copy {
   display: inline-block;

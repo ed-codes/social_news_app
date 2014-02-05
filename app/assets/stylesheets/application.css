@@ -11,6 +11,10 @@
  *= require_self
  *= require_tree .
  */
+* {
+  margin: 0;
+}
+
 @font-face
 {
 font-family: headings;
@@ -22,10 +26,15 @@ font-family: body;
 src: url('<%= asset_path('body.ttf') %>');
 }
 
+html {
+  height: 100%;
+}
+
 body {
 font-family: verdana, arial, helvetica, sans-serif;
 line-height: 21px;
 font-size: 14px;
+height: 100%;
 }
 
 h1 {
@@ -37,6 +46,10 @@ h1 {
 .container {
 max-width: 960px;
 margin: 0 auto;
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -100px;
 }
 
 .upvotes {
@@ -95,6 +108,10 @@ header a {
   box-shadow: 0 0 2px 0 rgba(50,50,50,0.3);
 }
 
+#sticky-content {
+  margin: 10px 0 10px 0;
+}
+
 #sticky.stuck {
   position: fixed;
   width: 100%;
@@ -141,11 +158,18 @@ a:hover {
 footer {
   background: #222;
   color: #666;
+  height: 140px;
+}
+
+footer, .push {
+  height: 100px;
 }
 
 #copyarea {
   padding-top: 30px;
   padding-bottom: 30px;
+  width: 960px;
+  margin: 0 auto;
 }
 .copy {
   display: inline-block;

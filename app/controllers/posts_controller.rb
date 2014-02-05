@@ -4,7 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    # I dont understand any of this haaahaha
+    @posts = 
+    Post.joins(:votes).
+    select('posts.*, count(votes.id) as upvote_count').
+    where('upvote = true').
+    group('posts.id, votes.post_id').
+    order('upvote_count desc')
   end
 
   # GET /posts/1

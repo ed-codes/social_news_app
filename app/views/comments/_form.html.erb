@@ -9,6 +9,8 @@
   <%= f.label :image %>
   <%= f.text_field :image%><br>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %><br>
+
   <%= f.submit %>
 
 <% end %>

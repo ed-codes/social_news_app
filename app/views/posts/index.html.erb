@@ -7,16 +7,17 @@
     
     <div class="post <%= cycle('light', 'dark') %>">
 
-      <h3><%= post.title%></h3>
-      
-      <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
+      <div class="post-text">
+        <h3><%= post.title%></h3>
+        
+        <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
 
-      <p><strong>Posted by:</strong> <%= post.user.email %><strong> at: </strong><%= post.created_at%></p>
+        <p><em>Posted by:</em> <%= post.user.email %><em> at: </em><%= post.created_at%></p>
 
-      <p><%= image_tag post.image, :width => '150px' %></p>
-      <p><%= post.content%></p> <!-- truncate this  -->
-      <%= link_to 'Read More', post %>
+        <p><%= image_tag post.image, :width => '150px' %></p>
+        <p><%= post.content.truncate(300) %><%= link_to 'Read More', post %></p> <!-- truncate this  -->
       
+      </div> <!-- end post text  -->
 
       <% if user_signed_in? %>
 
@@ -38,9 +39,9 @@
 
       <% end %>
 
-    </div>
+    </div><!-- end post div -->
 
   <% end %>
 
-</div> <!-- end post div -->
+</div> <!-- end posts div -->
 

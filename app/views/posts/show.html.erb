@@ -1,11 +1,11 @@
 
-
-<h2><%= @post.title %></h2>
-<p><span class="upvotes"><%= @post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= @post.votes.where(:downvote => true).count %> DownVotes</span></p>
-<p><strong>Posted by:</strong> <%= @post.user.email %></p>
-<%= image_tag @post.image, :width => '400' %>
-<p><%= @post.content%></p>
-
+<div class="post-text">
+  <h2><%= @post.title %></h2>
+  <p><span class="upvotes"><%= @post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= @post.votes.where(:downvote => true).count %> DownVotes</span></p>
+  <p><strong>Posted by:</strong> <%= @post.user.email %></p>
+  <%= image_tag @post.image, :width => '400' %>
+  <p><%= @post.content%></p>
+</div> <!-- end post-text -->
 
 <% if user_signed_in? %>
 
@@ -23,17 +23,25 @@
 
 <% end %>
 
-<% @comments.each do |comment| %>
-  
-  <h5><%= comment.title%></h5>
-  <p><%= comment.content%></p> <!-- truncate this  -->
-  <p><%= comment.created_at%></p>
-
-  <%= link_to 'Delete Comment', comment_path(comment.id), :method => :delete %>
-
-  <% end %>
 
 <%= link_to 'Comment', new_post_comment_path(@post) %> 
-
 <%= link_to 'Edit', edit_post_path(@post) if user_signed_in? && current_user == @post.user %> 
 <%= link_to 'Back', posts_path %>
+
+
+<div class="comments">
+
+  <% @comments.each do |comment| %>
+
+  <div class="comment">
+  
+    <h4><%= comment.title%></h4>
+    <p><%= comment.content%></p> <!-- truncate this  -->
+    <p> <em>Posted by </em><%= comment.user.email %> <em>at </em><%= comment.created_at%></p>
+
+    <%= link_to 'Delete Comment', comment_path(comment.id), :method => :delete %>
+
+  </div> <!-- end individual comment div -->
+
+  <% end %>
+</div> <!-- end comments area -->

@@ -123,7 +123,7 @@ header a {
   color: inherit;
 }
 
-#sticky {
+.my-sticky-element {
   border-top: 1px solid #cdcdcd;
   border-bottom:  1px solid #cdcdcd;
   -webkit-box-shadow: 0 0 2px 0 rgba(50,50,50,0.3);
@@ -135,12 +135,12 @@ header a {
   margin: 10px 0 10px 0;
 }
 
-#sticky.stuck {
+.my-sticky-element.stuck {
   position: fixed;
   width: 100%;
   background: rgba(255,255,255,0.965);
   top: 0;
-  padding: 10px 0 10px 0;
+  
   -webkit-box-shadow: 0 0 16px 0 rgba(50,50,50,0.3);
   -moz-box-shadow: 0 0 16px 0 rgba(50,50,50,0.3);
   box-shadow: 0 0 16px 0 rgba(50,50,50,0.3);
@@ -158,16 +158,16 @@ header a {
 
 }
 
-#sticky ul {
+.my-sticky-element ul {
   padding-left: 20px;
 }
 
-#sticky ul li {
+.my-sticky-element ul li {
   display: inline-block;
   padding: 0 10px 0 10px;
 }
 
-#sticky li a:link {
+.my-sticky-element li a:link {
   text-decoration: none;
   color: black;
 }

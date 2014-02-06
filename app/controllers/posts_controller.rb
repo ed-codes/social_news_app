@@ -7,8 +7,8 @@ class PostsController < ApplicationController
     # @unordered_posts = Post.all
     @posts = 
     Post.joins("LEFT OUTER JOIN votes ON votes.post_id = posts.id").
-    select('posts.*, count(votes.id) as upvote_count').
-    where('upvote = true OR (upvote is NULL AND downvote != true)').
+    select('posts.*, count(votes.upvote) as upvote_count').
+    where('upvote = true or upvote is null').
     group('posts.id, votes.post_id'). 
     order('upvote_count desc')
   end

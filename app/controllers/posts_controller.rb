@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     select('posts.*, count(votes.id) as upvote_count').
     where('upvote = true OR upvote is NULL').
     group('posts.id, votes.post_id').
+    having('upvote = true')
     order('upvote_count desc')
   end
 

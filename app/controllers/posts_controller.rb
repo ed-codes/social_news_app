@@ -4,12 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    # I dont understand any of this haaahaha
-    @unordered_posts = Post.all
+    # @unordered_posts = Post.all
     @posts = 
-    Post.joins(:votes).
+    Post.joins("LEFT OUTER JOIN votes ON votes.post_id = posts.id").
     select('posts.*, count(votes.id) as upvote_count').
-    where('upvote = true').
+    where('upvote = true OR upvote is NULL').
     group('posts.id, votes.post_id').
     order('upvote_count desc')
   end

@@ -2,7 +2,7 @@
 <div class="post-text">
   <h2><%= @post.title %></h2>
   <p><span class="upvotes"><%= @post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= @post.votes.where(:downvote => true).count %> DownVotes</span></p>
-  <p><strong>Posted by:</strong> <%= @post.user.email %></p>
+  <p>Posted by <em><%= @post.user.email %></em> on <em><%= @post.created_at.to_formatted_s(:short)%></em> </p>
   <%= image_tag @post.image, :width => '400' %>
   <p><%= markdown @post.content%></p>
 </div> <!-- end post-text -->
@@ -24,7 +24,7 @@
     <%= f.submit 'Vote Down' %>
   <% end %>
   </div>
-  
+
 <% end %>
 
 
@@ -41,7 +41,7 @@
   
     <h4><%= comment.title%></h4>
     <p><%= comment.content%></p> <!-- truncate this  -->
-    <p> <em>Posted by </em><%= comment.user.email %> <em>at </em><%= comment.created_at.to_formatted_s(:short)%></p>
+    <p>Posted by <em><%= comment.user.email %></em> on <em><%= comment.created_at.to_formatted_s(:short)%></em></p>
 
     <%= link_to 'Delete Comment', comment_path(comment.id), :method => :delete %>
 

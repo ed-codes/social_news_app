@@ -66,12 +66,12 @@ margin: 0 auto -100px;
 }
 
 .upvote-button form input[type="submit"] {
-  background-color: #9dce2c;
+  background-color: green;
   color: white;
 }
 
 .downvote-button form input[type="submit"] {
-  background-color: #fe1a00;
+  background-color: red;
   color: white;
 }
 

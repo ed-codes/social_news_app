@@ -4,7 +4,7 @@
 <div id="posts">
 
   <% @posts.each do |post| %>
-    
+
     <div class="post <%= cycle('light', 'dark') %>">
 
       <div class="post-text">
@@ -12,7 +12,7 @@
         
         <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
 
-        <p><em>Posted by:</em> <%= post.user.email %><em> at: </em><%= post.created_at.to_formatted_s(:short)%></p>
+        <p>Posted by <em><%= post.user.email %></em> on <em> <%= post.created_at.to_formatted_s(:short)%> </em></p>
 
         <p><%= image_tag post.image, :width => '150px' %></p>
         <p><%= markdown post.content.truncate(350) %><%= link_to 'Read More', post %></p> <!-- truncate this  -->

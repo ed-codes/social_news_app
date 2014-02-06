@@ -22,5 +22,4 @@ module App
   end
 
   
-  
 end

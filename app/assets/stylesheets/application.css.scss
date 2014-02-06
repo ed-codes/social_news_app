@@ -15,6 +15,18 @@
   margin: 0;
 }
 
+
+@font-face
+{
+font-family: headings;
+src: asset-path('bold.ttf');
+}
+@font-face
+{
+font-family: body;
+src: asset-path('body.ttf');
+}
+
 html {
   height: 100%;
 }

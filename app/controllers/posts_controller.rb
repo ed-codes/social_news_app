@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # I dont understand any of this haaahaha
+    @unordered_posts = Post.all
     @posts = 
     Post.joins(:votes).
     select('posts.*, count(votes.id) as upvote_count').

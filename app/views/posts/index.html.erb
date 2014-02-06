@@ -12,7 +12,7 @@
         
         <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
 
-        <p><em>Posted by:</em> <%= post.user.email %><em> at: </em><%= post.created_at%></p>
+        <p><em>Posted by:</em> <%= post.user.email %><em> at: </em><%= post.created_at.to_formatted_s(:short)%></p>
 
         <p><%= image_tag post.image, :width => '150px' %></p>
         <p><%= markdown post.content.truncate(350) %><%= link_to 'Read More', post %></p> <!-- truncate this  -->
@@ -23,15 +23,19 @@
 
       <% vote = current_user.votes.new(:post_id => post.id) %>
         
+        <div class="upvote-button">
         <%= form_for([post, vote]) do |f| %>
           <%= f.hidden_field :upvote, :value => true %>
           <%= f.submit 'Vote Up' %>
         <% end %>
+        </div>
 
+        <div class="downvote-button">
         <%= form_for([post, vote]) do |f| %>
           <%= f.hidden_field :downvote, :value => true %>
           <%= f.submit 'Vote Down' %>
         <% end %>
+        </div>
 
 
         <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && current_user == post.user %>

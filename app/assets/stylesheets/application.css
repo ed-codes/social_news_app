@@ -60,6 +60,28 @@ margin: 0 auto -100px;
   color: red;
 }
 
+.upvote-button {
+  float:left;
+  margin-right: 10px; 
+}
+
+.upvote-button form input[type="submit"] {
+  background-color: #9dce2c;
+  color: white;
+}
+
+.downvote-button form input[type="submit"] {
+  background-color: #fe1a00;
+  color: white;
+}
+
+.upvote-button form input[type="submit"], .downvote-button form input[type="submit"] {
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  border-radius:6px;
+  border: none;
+}
+
 /* HEADER STYLES */
 
 header {

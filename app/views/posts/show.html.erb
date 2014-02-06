@@ -11,16 +11,20 @@
 
   <% vote = current_user.votes.new(:post_id => @post.id) %>
 
+  <div class="upvote-button">
   <%= form_for([@post, vote]) do |f| %>
     <%= f.hidden_field :upvote, :value => true %>
     <%= f.submit 'Vote Up' %>
   <% end %>
+  </div>
 
+  <div class="downvote-button">
   <%= form_for([@post, vote]) do |f| %>
     <%= f.hidden_field :downvote, :value => true %>
     <%= f.submit 'Vote Down' %>
   <% end %>
-
+  </div>
+  
 <% end %>
 
 
@@ -37,7 +41,7 @@
   
     <h4><%= comment.title%></h4>
     <p><%= comment.content%></p> <!-- truncate this  -->
-    <p> <em>Posted by </em><%= comment.user.email %> <em>at </em><%= comment.created_at%></p>
+    <p> <em>Posted by </em><%= comment.user.email %> <em>at </em><%= comment.created_at.to_formatted_s(:short)%></p>
 
     <%= link_to 'Delete Comment', comment_path(comment.id), :method => :delete %>
 

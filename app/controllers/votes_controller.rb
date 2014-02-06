@@ -4,9 +4,12 @@ class VotesController < ApplicationController
   def create
     @vote = @post.votes.new(vote_params)
     @vote.user = current_user
-    @vote.save
-
-    redirect_to :back
+    if @vote.save
+      redirect_to :back
+    else
+      redirect_to :back,
+      :notice => "You have already voted for this"
+    end
   end
 
   def destroy

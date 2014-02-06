@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     Post.joins("LEFT OUTER JOIN votes ON votes.post_id = posts.id").
     select('posts.*, count(votes.id) as upvote_count').
     where('upvote = true OR upvote is NULL').
-    group('posts.id, votes.post_id').
+    group('posts.id, votes.upvote, votes.post_id').
     having('upvote = true').
     order('upvote_count desc')
   end

@@ -4,7 +4,7 @@
   <p><span class="upvotes"><%= @post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= @post.votes.where(:downvote => true).count %> DownVotes</span></p>
   <p><strong>Posted by:</strong> <%= @post.user.email %></p>
   <%= image_tag @post.image, :width => '400' %>
-  <p><%= @post.content%></p>
+  <p><%= markdown @post.content%></p>
 </div> <!-- end post-text -->
 
 <% if user_signed_in? %>

@@ -15,7 +15,7 @@
         <p><em>Posted by:</em> <%= post.user.email %><em> at: </em><%= post.created_at%></p>
 
         <p><%= image_tag post.image, :width => '150px' %></p>
-        <p><%= post.content.truncate(300) %><%= link_to 'Read More', post %></p> <!-- truncate this  -->
+        <p><%= markdown post.content.truncate(350) %><%= link_to 'Read More', post %></p> <!-- truncate this  -->
       
       </div> <!-- end post text  -->
 

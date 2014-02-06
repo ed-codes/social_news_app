@@ -35,6 +35,9 @@ end
 # for authentication
 gem 'devise'
 
+#for breaking post into paragraphs
+gem 'redcarpet'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

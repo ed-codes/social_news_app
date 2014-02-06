@@ -1,5 +1,5 @@
 
-<%= link_to 'New Post', new_post_path if user_signed_in? %>
+<h3 class="new-post"><%= link_to 'New Post', new_post_path if user_signed_in? %></h3>
 
 <div id="posts">
 
@@ -8,7 +8,7 @@
     <div class="post <%= cycle('light', 'dark') %>">
 
       <div class="post-text">
-        <h3><%= post.title%></h3>
+        <h3><%= link_to post.title, post%></h3>
         
         <p><span class="upvotes"><%= post.votes.where(:upvote => true).count %> UpVotes </span><br> <span class="downvotes"><%= post.votes.where(:downvote => true).count %> DownVotes</span></p>
 

@@ -83,6 +83,11 @@ margin: 0 auto -100px;
   border: none;
 }
 
+.new-post {
+  font-family: headings, Impact, Helvetica, Arial;
+  text-transform: uppercase;
+}
+
 /* HEADER STYLES */
 
 header {
@@ -171,10 +176,15 @@ header a {
   text-decoration: none;
   color: black;
 }
+a, a:visited {
+  color: black;
+}
 
 a:hover {
   color: red;
 }
+
+
 
 /*COMMENT STYLES*/
 

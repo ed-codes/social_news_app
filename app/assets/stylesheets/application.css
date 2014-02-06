@@ -18,12 +18,12 @@
 @font-face
 {
 font-family: headings;
-src: url('<%= asset_path('bold.ttf') %>');
+src: url(asset-path('bold.ttf'));
 }
 @font-face
 {
 font-family: body;
-src: url('<%= asset_path('body.ttf') %>');
+src: url(asset-path('body.ttf'));
 }
 
 html {

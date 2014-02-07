@@ -1,5 +1,9 @@
 
-<h3 class="new-post"><%= link_to 'New Post', new_post_path if user_signed_in? %></h3>
+
+<h3 class="sort-by">Sort By <%= link_to 'Top Voted', posts_path(sort_by: 'upvote_count') %> | <%= link_to 'Newest Posts', posts_path(:sort_by => 'created_at') %> </h3>
+
+<h2 class="new-post"><%= link_to 'New Post', new_post_path if user_signed_in? %></h2>
+
 
 <div id="posts">
 

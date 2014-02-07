@@ -5,12 +5,18 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # @unordered_posts = Post.all
+    params[:sort_by] ||= 'upvote_count'
+
+    # if params[:sort_by] != 'created_at' or params[:sort_by] != 'upvote_count'
+    #   params[:sort_by] = 'upvote_count'
+    # end
+
     @posts = 
     Post.joins("LEFT OUTER JOIN votes ON votes.post_id = posts.id").
     select('posts.*, count(votes.upvote) as upvote_count').
     where('upvote = true or upvote is null').
     group('posts.id, votes.post_id'). 
-    order('upvote_count desc')
+    order("#{params[:sort_by]} desc")
   end
 
   # GET /posts/1
